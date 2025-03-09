@@ -1,0 +1,798 @@
+@font-face {
+	font-family: 'NanumSquare';
+	src: url(../font/NanumSquareR.ttf);
+}
+
+* { /* 기본 설정 */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+  	font-family: 'NanumSquare';
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+img {
+	object-fit: cover;
+}
+
+.flex { display: flex; }
+.sb { justify-content: space-between; }
+.aic { align-items: center; }
+.jcc { justify-content: center; }
+.pointer { cursor: pointer; }
+.hover { transition: .3s ease; }
+.hover:hover { background: #ff8845; }
+
+
+/***
+ *  로그인 모달
+ *
+ */
+.login, .join {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .5);
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	transition: .3s opacity;
+	z-index: -99;
+}
+
+#login-modal:checked ~ .login,
+#join-modal:checked ~ .join {
+	opacity: 1;
+	z-index: 100;
+}
+
+.login-popup,
+.join-popup {
+	position: absolute;
+	top: -50%;
+	left: 50%;
+	z-index: 75;
+  	width: 350px;
+	padding: 50px 0;
+	background: white;
+	transform: translate(-50%);
+	border-radius: 5px;
+	transition: .7s top;
+}
+
+.login-popup {
+	height: 400px;
+}
+
+.join-popup {
+	height: 670px;
+}
+
+.login-popup h2,
+.login-popup p,
+.join-popup h2,
+.join-popup p {
+	margin-left: 30px;
+}
+
+#login-modal:checked ~ .login .login-popup,
+#join-modal:checked ~ .join .join-popup {
+	top: 6%;
+}
+
+.login-popup p,
+.join-popup p {
+	font-size: 13.5px;
+	color: #9e9e9e;
+	margin-bottom: 30px;
+}
+
+.login-input,
+.join-input {
+	text-align: center;
+	padding-bottom: 50px;
+	overflow: hidden;
+ 	color: black;
+}
+
+.login-input > div,
+.join-input > div {
+	width: 85%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.login-input input,
+.join-input input {
+	position: relative;
+	width: 85%;
+	height: 35px;
+	margin-top: 15px;
+	padding-left: 10px;
+	outline: none;
+	border: none;
+  	color: black;
+	border-bottom: 1px solid #bdbdbd;
+}
+
+.login-input input[type=password],
+.join-input input[type=password] {
+	font-family: "sans-serif" !important;
+}
+
+.login-input input[type=password]::placeholder,
+.join-input input[type=password]::placeholder {
+	font-family: 'NanumSquare';
+}
+
+#login-modal:checked ~ .login .login-input input:valid + label,
+#join-modal:checked ~ .join .join-input input:valid + label {
+	top: 10%;
+	font-size: 12px;
+	color: #9e9e9e;
+}
+
+.login-bar,
+.join-bar {
+	width: 80%;
+	margin: 0 auto;
+	height: 1px;
+	background: #ededed;
+}
+
+.login-btn,
+.join-btn {
+	display: flex;
+	margin-top: 20px;
+	margin-left: 150px;
+}
+
+.login-btn > label,
+.join-btn > label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 70px;
+	height: 40px;
+	margin-right: 10px;
+	font-size: 14px;
+	background: white;
+	color: black;
+	border-radius: 5px;
+	border: 1px solid #ededed;
+	cursor: pointer;
+}
+
+.login-btn button,
+.join-btn button {
+	width: 85px;
+	height: 40px;
+	border-radius: 5px;
+	font-size: 14px;
+	border: 1px solid #ededed;
+	background: #3d97eb;
+	color: white;
+	cursor: pointer;
+}
+
+@keyframes down {
+	0% {
+		top: -10%;
+	}
+	100% {
+		top: 1.3%;
+	}
+}
+
+
+/***
+ *  wrap 섹션 시작
+ *
+ */
+#wrap {
+	max-width: 1920px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.rap {
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+
+/***
+ *  header (main & sub header)
+ *
+ */
+.main-header,
+.sub-header {
+	position: relative;
+	top: 0;
+	z-index: 99;
+	width: 100%;
+	height: 80px;
+	background-color: rgba(33, 33, 33, .5);
+}
+
+.main-header .rap,
+.sub-header .rap {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+	padding: 0 50px;
+	color: #fff;
+}
+
+#logo {
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.user-btn {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 230px;
+}
+
+.user-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.user-info p {
+	padding-right: 20px;
+}
+
+.user-btn > a,
+.user-btn > label,
+.user-info > a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 25px;
+	border: 2px solid #fff;
+	border-radius: 25px;
+	transition: .3s ease;
+}
+
+.user-btn > a:hover,
+.user-btn > label:hover,
+.user-info > a:hover {
+	background-color: #fff;
+	color: #000;
+}
+
+/*header nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+}
+
+header nav li {
+  cursor: pointer;
+}*/
+
+
+/***
+ *  visual (main & sub visual)
+ *
+ */
+.visual,
+.sub-visual {
+	position: absolute;
+	top: 0;
+  	width: 100%;
+}
+
+.visual { height: 100vh; }
+
+.sub-visual { height: 400px; }
+
+.visual-img {
+  	width: 100%;
+	height: 100%;
+	background-size: cover;
+}
+
+.sub-visual-img {
+	width: 100%;
+	height: 100%;
+	background: url("image/diary_cover1.jpg");
+	background-size: cover;
+}
+
+.visual-img::before,
+.sub-visual::before {
+	position: absolute;
+	content: "";
+	opacity: 0.5;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: #333;
+}
+
+#one-line-intro {
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	text-align: center;
+	font-size: 60px;
+}
+
+.sub-visual-title {
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-size: 60px;
+}
+
+.visual-text p,
+.sub-visual-text p {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-size: 18px;
+	text-align: center;
+}
+
+.visual-text p { top: 55%; }
+
+.sub-visual-text p { top: 58%; }
+
+
+/***
+ *  main-menu
+ *
+ */
+.main-menu {
+	position: absolute;
+	top: 67%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	color: #fff;
+}
+
+.main-menu .rap {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.main-menu-list {
+	width: 300px;
+	text-align: center;
+}
+
+.main-menu-list p {
+	font-size: 18px;
+	margin-top: 35px;
+}
+
+.main-menu-list:not(:last-child) {
+  	border-right: 1px solid #9e9e9e;
+}
+
+.main-menu-list i {
+	font-size: 50px;
+	transition: .3s ease;
+}
+
+.main-menu-list a:hover i {
+  	transform: scale(1.3);
+} 
+
+
+/***
+ *  다이어리 글작성 & 글보기
+ *	과제 알리미
+ *
+ */
+.diary-write,
+.diary-content,
+.diary-view-detail {
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translateX(-50%);
+	border-radius: 5px;
+}
+
+.diary-write,
+.diary-view-detail {
+	padding: 0 30px;
+	border: 3px solid #000;
+}
+
+.diary-content
+.project-alarm {
+	margin: 20px 0;
+}
+
+.diary-write input,
+.diary-write select,
+.diary-input input {
+	width: 100%;
+	height: 80px;
+}
+
+.diary-write textarea {
+	width: 100%;
+	height: 150px;
+}
+
+.diary-content table {
+	display: block;
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+.diary-content table th:nth-child(1), .diary-content table td:nth-child(1) { width: 60px; }
+.diary-content table th:nth-child(2), .diary-content table td:nth-child(2) { width: 588px; }
+.diary-content table th:nth-child(3), .diary-content table td:nth-child(3) { width: 160px; }
+.diary-content table th:nth-child(4), .diary-content table td:nth-child(4) { width: 140px; }
+.diary-content table th:last-child { width: 250px; }
+.diary-content table td:last-child { width: 233px;  }
+
+.diary-content tbody {
+	display: block;
+	width: 100%;
+	height: 396px;
+	overflow-y: scroll;
+}
+
+.diary-content th,
+.diary-content td {
+	height: 50px;
+}
+
+.diary-write form > div,
+.diary-view-detail > div {
+	margin: 30px 0;
+}
+
+.diary-write div,
+.diary-view-detail > div p {
+	word-break: break-all;
+}
+
+.diary-write form > div input,
+.diary-write form > div select,
+.diary-write form > div textarea,
+.diary-view-detail > div p {
+	margin-top: 15px;
+	padding: 20px;
+	font-size: 20px;
+	border: 1px solid #000;
+	border-radius: 5px;
+}
+
+.diary-view-detail > div:nth-child(2) p {
+	height: 300px;
+	overflow-y: scroll;
+}
+
+.diary-write button,
+.diary-content button,
+.diary-view-detail button {
+	height: 80px;
+	font-size: 20px;
+	border-radius: 5px;
+	transition: .3s ease;
+	cursor: pointer;
+}
+
+.diary-write button,
+.diary-content button {
+	width: 100%;
+}
+
+.diary-write button {
+	margin-top: 20px;
+}
+
+.diary-content button {
+	margin-top: 30px;
+}
+
+.diary-view-detail button {
+	width: 48%;
+	margin-top: 20px;
+}
+
+.diary-view-detail > div:last-child {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.diary-write button,
+.diary-content button,
+.diary-view-detail button:first-child {
+	background-color: #fff;
+	cursor: pointer;
+}
+
+.diary-view-detail button:last-child {
+	background-color: #ed404c;
+	color: #fff;
+}
+
+.diary-write button:hover,
+.diary-content button:hover,
+.diary-view-detail button:first-child:hover {
+	background-color: #616161;
+	color: #fff;
+}
+
+
+/***
+ *	과제 알리미
+ *
+ */
+.project-alarm {
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 20px 0;
+	border-radius: 5px;
+}
+
+.project-alarm table {
+	display: block;
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+.project-alarm tbody {
+	display: block;
+	width: 100%;
+	height: 396px;
+	overflow-y: scroll;
+}
+
+.project-alarm table th:nth-child(1), .project-alarm table td:nth-child(1) { width: 60px; }
+.project-alarm table th:nth-child(2), .project-alarm table td:nth-child(2) { width: 518px; }
+.project-alarm table th:nth-child(3), .project-alarm table td:nth-child(3) { width: 230px; }
+.project-alarm table th:nth-child(4), .project-alarm table td:nth-child(4) { width: 140px; }
+.project-alarm table th:last-child { width: 250px; }
+.project-alarm table td:last-child { width: 233px;  }
+
+.project-alarm th,
+.project-alarm td {
+	height: 50px;
+}
+
+.project-alarm > div button {
+	width: 100%;
+	height: 80px;
+	font-size: 20px;
+	border-radius: 5px;
+	transition: .3s ease;
+	margin-top: 30px;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+.project_delete {
+	width: 20px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.project-alarm button:hover {
+	background-color: #616161;
+	color: #fff;
+}
+
+
+/***
+ *	프로젝트 작성
+ *
+ */
+.project-write {
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0 30px;
+	border: 3px solid #000;
+	border-radius: 5px;
+}
+
+.project-write input,
+.project-write select {
+	width: 100%;
+	height: 80px;
+}
+
+.project-write textarea {
+	width: 100%;
+	height: 150px;
+}
+
+.project-write form > div {
+	margin: 30px 0;
+}
+
+.project-write div {
+	word-break: break-all;
+}
+
+.project-write form > div input,
+.project-write form > div select,
+.project-write form > div textarea {
+	margin-top: 15px;
+	padding: 20px;
+	font-size: 20px;
+	border: 1px solid #000;
+	border-radius: 5px;
+}
+
+.project-write button {
+	width: 100%;
+	height: 80px;
+	font-size: 20px;
+	border-radius: 5px;
+	transition: .3s ease;
+	margin-top: 20px;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+.project-write button:hover {
+	background-color: #616161;
+	color: #fff;
+}
+
+
+/***
+ *	한줄 소개 변경
+ *
+ */
+.intro-update {
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0 30px;
+	border: 3px solid #000;
+	border-radius: 5px;
+}
+
+.intro-update input {
+	width: 100%;
+	height: 80px;
+}
+
+.intro-update form > div {
+	margin: 30px 0;
+}
+
+.intro-update div {
+	word-break: break-all;
+}
+
+.intro-update form > div input {
+	margin-top: 15px;
+	padding: 20px;
+	font-size: 20px;
+	border: 1px solid #000;
+	border-radius: 5px;
+}
+
+.intro-update button {
+	width: 100%;
+	height: 80px;
+	font-size: 20px;
+	border-radius: 5px;
+	transition: .3s ease;
+	margin-top: 20px;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+.intro-update button:hover {
+	background-color: #616161;
+	color: #fff;
+}
+
+
+/***
+ *	다이어리 표지 변경
+ *
+ */
+.bg-update {
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0 30px;
+	border: 3px solid #000;
+	border-radius: 5px;
+}
+
+.bg-update input {
+	width: 100%;
+	height: 80px;
+}
+
+.bg-update form > div {
+	margin: 30px 0;
+}
+
+.bg-update div {
+	word-break: break-all;
+}
+
+.bg-update form > div input {
+	margin-top: 15px;
+	padding: 20px;
+	font-size: 20px;
+	border: 1px solid #000;
+	border-radius: 5px;
+}
+
+.bg-update button {
+	width: 100%;
+	height: 80px;
+	font-size: 20px;
+	border-radius: 5px;
+	transition: .3s ease;
+	margin-top: 20px;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+.bg-update button:hover {
+	background-color: #616161;
+	color: #fff;
+}
+
+
+/***
+ *  footer
+ *
+ */
+.main-footer {
+	position: absolute;
+	bottom: 3%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 99;
+	color: white;
+}
+
+.sub-footer {
+	position: absolute;
+	left: 50%;
+	padding: 30px 0;
+  	transform: translateX(-50%);
+  	z-index: 99;
+	width: 100%;
+	text-align: center;
+  	color: #000;
+	border-top: 3px solid #000;
+}
