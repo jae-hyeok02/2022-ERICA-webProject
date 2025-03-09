@@ -201,7 +201,7 @@
 </p>
 - 회원 정보가 저장되는 테이블이다.
 
-##### 사용된 Column
+##### ❗사용된 Column
 - idx(중복되지 않는 순서이자 Primary key)
 - user_id(아이디)
 - user_pw(비밀번호)
@@ -219,7 +219,7 @@
 </p>
 - 일기 정보가 저장되는 테이블이다.
 
-##### 사용된 Column
+##### ❗사용된 Column
 - idx(중복되지 않는 순서이자 Primary key)
 - diary_title(일기 제목)
 - diary_cont(일기 내용)
@@ -237,7 +237,7 @@
 </p>
 - 과제 정보가 저장되는 테이블이다.
 
-##### 사용된 Column
+##### ❗사용된 Column
 - idx(중복되지 않는 순서이자 Primary key)
 - project_title(과제명)
 - project_subject(과목명)
