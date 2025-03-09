@@ -7,16 +7,15 @@
 
 제가 정한 프로젝트 주제는 **웹 다이어리** 입니다.
 
-
 ## 📅 개발 기간
-- 2022.12.26 ~ 2023.01.10 (15일)
-
+- 2022.12.30 ~ 2023.01.10 (11일)
 
 ## 🧑🏻‍💻 사용한 프로그램 및 언어
-- **프로그램** : XAMPP(phpMyAdmin)
+- **패키지** : XAMPP
 - **DBMS** : MySQL
-- **IDE** : Visual Studio Code(VSCode)
+- **DB 관리 프로그램** : phpMyAdmin
 - **웹 서버** : Apache HTTP Server
+- **IDE** : Visual Studio Code(VSCode)
 - **언어/라이브러리** : HTML, CSS, JS, PHP, jQuery
 
 ## 📖 코드 실행 방법
@@ -34,6 +33,7 @@
 2. 브라우저 주소창에 http://localhost/phpmyadmin/index.php?route=/database/structure&db=web_diary 을 입력하면 됩니다.
 
 
+
 ## 📌 주요 기능
 #### 로그인
 - MySQL SELECT문을 통해 DB값 검증
@@ -41,10 +41,12 @@
 
 #### 회원가입
 - 아이디 중복 체크
+- 패스워드 암호화(Bcrypt Algorithm 사용)
 - 아이디 20자 이하인지 체크
 - 이름 7자 이하인지 체크
 - 한줄 소개 25자 이하인지 체크
-- MySQL INSERT문을 통해 DB에 아이디 저장
+- 다이어리 표지 이미지 업로드
+- DB에 아이디 저장
 
 #### 메인 페이지(로그아웃 상태)
 - 로그인/회원가입 버튼 활성화
@@ -61,15 +63,17 @@
 - 로그아웃 버튼 활성화
 
 #### 일기
-- 일기 작성(제목, 
-- 개인일기, 커플일기 선택 가능
-- 커플일기는 다른 user의 아이디를 선택하여 작성할 수 있으며, 두 user가 모두 조회 가능
+- 일기 작성[제목, 분류 선택, 일기 공유 상대 선택(커플일기 작성 시), 내용]
+- 일기 유형은 개인일기, 커플일기 중 선택 가능
+- 커플일기는 다른 사용자의 아이디를 선택하여 작성할 수 있으며, 작성할 경우 두 사용자가 모두 조회 가능
 - 일기 목록 조회
 - 일기 열람(일기 목록에서 일기 제목을 클릭하면 해당 일기 열람 가능)
 - 일기 삭제
 
 #### 과제 알리미
-- 과제 등록
+- 과제 등록(과제명, 과목명, 과제 유형 선택, 마감일자)
+- 과제 유형에 따라 프로젝트, 에세이, 보고서, 시험 대체과제, 기타 총 5가지 중 선택 가능
+- 마감일자의 경우 오늘 기준 이전 날짜는 선택 불가능하도록 구현
 - 과제 목록 조회(기한이 얼마 안남은 과제부터 상단으로 올라오도록 오름차순 정렬)
 - 과제 삭제(과제명 옆에 X 버튼을 클릭하면 삭제 가능)
 
@@ -84,28 +88,27 @@
 
 
 
-
 ## 📌 주요 페이지
 #### ✔️ 메인 페이지(비로그인 상태)
 <p align="center">
   <img src="README_image/main_logout.png">
 </p>
 
-<br/><br/>
+<br/>
 
 #### ✔️ 회원가입 modal
 <p align="center">
   <img src="README_image/main_join_modal.png">
 </p>
 
-<br/><br/>
+<br/>
 
 #### ✔️ 로그인 modal
 <p align="center">
   <img src="README_image/main_login_modal.png">
 </p>
 
-<br/><br/>
+<br/>
 
 #### ✔️ 메인 페이지(로그인 상태)
 <p align="center">
@@ -120,7 +123,7 @@
   <img src="README_image/diary_view.png">
 </p>
 
-<br/><br/>
+<br/>
 
 #### ✔️ 일기 작성 페이지
 <p align="center">
@@ -132,20 +135,25 @@
   <img src="README_image/diary_share_selectbox.png">
 </p>
 
-<br/><br/>
+##### ❗커플일기 작성 시 상대에게 보여짐.
+<p align="center">
+  <img src="README_image/diary_view_couple.png">
+</p>
+
+<br/>
 
 #### ✔️ 일기 열람 페이지(개인일기)
 <p align="center">
   <img src="README_image/diary_view_detail_private.png">
 </p>
 
-<br/><br/>
+<br/>
 
 #### ✔️ 일기 열람 페이지(커플일기)
 <p align="center">
   <img src="README_image/diary_view_detail_couple.png">
 </p>
-- 일기 작성자와 현재 로그인된 유저가 다르지만, 일기를 조회할 수 있는 것을 확인할 수 있다.
+- header를 보면 일기 작성자와 현재 로그인된 유저가 다르지만, 일기를 조회할 수 있는 것을 확인할 수 있다.
 
 <br/><br/>
 
@@ -154,14 +162,14 @@
   <img src="README_image/project_alarm.png">
 </p>
 
-<br/><br/>
+<br/>
 
 #### ✔️ 과제 등록 페이지
 <p align="center">
   <img src="README_image/project_write.png">
 </p>
 
-##### ❗과제 유형에 따라 프로젝트, 에세이, 보고서, 시험 대체과제, 기타 총 5가지 선택 가능
+##### ❗과제 유형에 따라 프로젝트, 에세이, 보고서, 시험 대체과제, 기타 총 5가지 중 선택 가능
 <p align="center">
   <img src="README_image/project_selectbox.png">
 </p>
@@ -171,21 +179,69 @@
   <img src="README_image/project_deadline.png">
 </p>
 
-<br/><br/>
+<br/>
 
 #### ✔️ 한줄 소개 변경 페이지
 <p align="center">
   <img src="README_image/intro_update.png">
 </p>
 
-<br/><br/>
+<br/>
 
 #### ✔️ 다이어리 표지 변경 페이지
 <p align="center">
   <img src="README_image/bg_update.png">
 </p>
 
-##### ❗다이어리 표지 업로드(선택) 상태
+
+## 🗃️ 주요 Database
+#### ✔️ DB - user 테이블
 <p align="center">
-  <img src="README_image/bg_image_select.png">
+  <img src="README_image/DB_user.png">
 </p>
+- 회원 정보가 저장되는 테이블이다.
+
+##### 사용된 Column
+- idx(중복되지 않는 순서이자 Primary key)
+- user_id(아이디)
+- user_pw(비밀번호)
+- user_name(유저 이름)
+- user_intro(한줄 소개)
+- intro_img(다이어리 표지 이미지명)
+- birth_date(생일)
+- join_date(가입일자, 가입한 시간 및 날짜를 기준으로 현재 시간 자동 저장)
+
+<br/>
+
+#### ✔️ DB - diary 테이블
+<p align="center">
+  <img src="README_image/DB_diary.png">
+</p>
+- 일기 정보가 저장되는 테이블이다.
+
+##### 사용된 Column
+- idx(중복되지 않는 순서이자 Primary key)
+- diary_title(일기 제목)
+- diary_cont(일기 내용)
+- diary_type[일기 유형(개인일기, 커플일기 中 1)]
+- diary_writer_id(일기 작성자 아이디)
+- diary_writer_name(일기 작성자 이름)
+- diary_couple_id(공유 상대 아이디, 개인일기일 경우 값은 NULL로 기본 설정)
+- diary_write_date(일기 작성일자, 작성한 시간 및 날짜를 기준으로 현재 시간 자동 저장)
+
+<br/>
+
+#### ✔️ DB - project 테이블
+<p align="center">
+  <img src="README_image/DB_project.png">
+</p>
+- 과제 정보가 저장되는 테이블이다.
+
+##### 사용된 Column
+- idx(중복되지 않는 순서이자 Primary key)
+- project_title(과제명)
+- project_subject(과목명)
+- project_type[과제 유형(프로젝트, 에세이, 보고서, 시험 대체과제, 기타 中 1)]
+- project_user_id(과제 등록한 유저 아이디)
+- due_date(과제 마감일자)
+
