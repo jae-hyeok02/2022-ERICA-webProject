@@ -188,5 +188,5 @@
 
 ##### ❗다이어리 표지 업로드(선택) 상태
 <p align="center">
-  <img src="README_image/bg_update_select.png">
+  <img src="README_image/bg_image_select.png">
 </p>
