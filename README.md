@@ -2,8 +2,6 @@
 한양대학교 ERICA 2022 웹애플리케이션개발 강의 과제 : 자율주제 웹 프로젝트
 
 
-<br/>
-
 ## 💻 프로젝트 소개
 2022학년도 1학년 겨울 계절학기 수업 中 [웹애플리케이션개발, 전공핵심/3학점] 수업에서 진행한 **자율 주제 웹 프로젝트**입니다.
 
@@ -17,6 +15,7 @@
 ## 🧑🏻‍💻 사용한 프로그램 및 언어
 - **프로그램** : XAMPP(phpMyAdmin)
 - **DBMS** : MySQL
+- **IDE** : Visual Studio Code(VSCode)
 - **웹 서버** : Apache HTTP Server
 - **언어/라이브러리** : HTML, CSS, JS, PHP, jQuery
 
