@@ -18,7 +18,7 @@
 - **IDE** : Visual Studio Code(VSCode)
 - **언어/라이브러리** : HTML, CSS, JS, PHP, jQuery
 
-## 📖 코드 실행 방법
+<!-- ## 📖 코드 실행 방법
 1. xampp 압축 파일 다운로드
 2. C:\ (C드라이브 최상위 디렉토리)에 압축 해제
 3. xampp 폴더에 들어가서 **xampp-control.exe** 실행
@@ -30,7 +30,7 @@
 
 ## 📖 DB 접근 방법
 1. 위의 코드 실행 방법의 1~5 까지 모두 동작하는 상태여야 합니다.
-2. 브라우저 주소창에 http://localhost/phpmyadmin/index.php?route=/database/structure&db=web_diary 을 입력하면 됩니다.
+2. 브라우저 주소창에 http://localhost/phpmyadmin/index.php?route=/database/structure&db=web_diary 을 입력하면 됩니다.-->
 
 
 
